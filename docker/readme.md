@@ -1,6 +1,6 @@
 # Configuração e estruturação do Docker
 
-## Estrutura de pastas
+## 1. Estrutura de pastas
 
 ```
 projeto/
@@ -19,7 +19,7 @@ projeto/
 
 ---
 
-## Postgres image
+## 2. Postgres image
 
 ```
 postgres:
@@ -41,7 +41,7 @@ postgres:
 
 ---
 
-## pgAdmin4 image
+## 3. pgAdmin4 image
 
 ```
 pgAdmin:
@@ -61,7 +61,7 @@ pgAdmin:
 
 ---
 
-## Running containers
+## 4. Running containers
 
 ```powershell
 docker-compose up -d --build
@@ -69,7 +69,7 @@ docker-compose up -d --build
 
 ---
 
-## Obtendo IP do container do banco de dados
+## 5. Obtendo IP do container do banco de dados
 
 ```powershell
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name
@@ -77,10 +77,16 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' con
 
 Esperado: 172.17.0.2 ou similar.
 
-## Conectando pgAdmin ao banco de dados
+## 6. Conectando pgAdmin ao banco de dados
 
 1.  Abrir navegador com `localhost:5050`
 2.  Login com credenciais definidas no container (PGADMIN_DEFAULT_EMAIL e PGADMIN_DEFAULT_PASSWORD)
 3.  Criar nova conexão com o ip obtido no passo anterior e credenciais definidas na imagem do postgresql(POSTGRES_DB, POSTGRES_USER e POSTGRES_PASSWORD).
 
 ![connection window](https://github.com/caiqueoliveira94/minhacopa/blob/master/image.png)
+
+---
+
+## 7. Criando tabelas
+
+Dentro do pgadmin4, rodar o sript sql dentro de postgres/database.sql.
