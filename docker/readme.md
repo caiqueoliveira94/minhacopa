@@ -63,9 +63,7 @@ pgAdmin:
 
 ## Running containers
 
-powershell
-
-```
+```powershell
 docker-compose up -d --build
 ```
 
@@ -73,9 +71,7 @@ docker-compose up -d --build
 
 ## Obtendo IP do container do banco de dados
 
-powershell
-
-```
+```powershell
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name
 ```
 
